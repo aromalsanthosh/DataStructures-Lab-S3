@@ -31,7 +31,7 @@ sum in tuple form.<br>
 8.3.Delete elements from the Front of the queue.<br>
 8.4.Delete elements from the Rear of the queue.<br>
 8.5.Display the queue after each operation.<br>
-9.Using stack convert an infix expression to a postfix expression and evaluate the postfix
+9. Using stack convert an infix expression to a postfix expression and evaluate the postfix
 expression.<br>
-10.Write a program to convert an infix expression to a prefix expression using stacks.<br>
-11.Convert an infix expression to a postfix expression without using a stack<br>
+10. Write a program to convert an infix expression to a prefix expression using stacks.<br>
+11. Convert an infix expression to a postfix expression without using a stack<br>
