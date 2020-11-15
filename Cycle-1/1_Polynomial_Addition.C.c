@@ -1,4 +1,5 @@
 //C Program to add two polynomial using Arrays
+// Here array index is considered as exponent of a term and data stored in respective array index as the coefficient
 /*
 Program written by Aromal S
 S3D CSE
