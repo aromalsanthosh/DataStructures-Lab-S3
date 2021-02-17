@@ -11,7 +11,7 @@ node* top=NULL;
 void push(int data){
   node* newnode=(node*)malloc(sizeof(node));
   if(newnode==NULL){
-    printf("NO SPACE\n");
+    printf("Stack Overflow\n");
     return;
   }
   if (top==NULL){
@@ -31,7 +31,7 @@ void push(int data){
 void pop(){
 
   if(top==NULL){
-    printf("EMPTY STACK!");
+    printf("Stack UnderFlow!");
     return;
   }
   else{
