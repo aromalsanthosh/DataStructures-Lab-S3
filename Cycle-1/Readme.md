@@ -31,3 +31,5 @@ sum in tuple form.<br>
 8. Using stack convert an infix expression to a postfix expression and evaluate the postfix expression.<br>
 9. Write a program to convert an infix expression to a prefix expression using stacks.<br>
 10. Convert an infix expression to a postfix expression without using a stack<br>
+11. Implement a Queue using Linked List<br>
+12. Implement a Stack using Linked List<br>
