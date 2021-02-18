@@ -3,7 +3,7 @@
 
 int smallest(int arr[], int k, int n);
 void selection_sort(int arr[], int n);
-void main(int argc, char *argv[]) {
+void main() {
 	int arr[10], i, n;
 	printf("\n Enter the number of elements in the array: ");
 	scanf("%d", &n);
