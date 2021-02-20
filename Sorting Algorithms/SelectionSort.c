@@ -1,41 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+void SelectionSort(int arr[],int n);
+int main()
+{
+    int arr[100],n,i;
+    printf("Enter the number of elements to be sorted: ");
+    scanf("%d",&n);
+    printf("Enter the  elements : ");
+    for(i=0;i<n;++i)
+    {
+        scanf("%d",&arr[i]);
+    }
 
-int smallest(int arr[], int k, int n);
-void selection_sort(int arr[], int n);
-void main() {
-	int arr[10], i, n;
-	printf("\n Enter the number of elements in the array: ");
-	scanf("%d", &n);
-	printf("\n Enter the elements of the array: ");
-	for(i=0;i<n;i++)
-		scanf("%d", &arr[i]);
-	selection_sort(arr, n);
-	printf("\n The sorted array is: \n");
-	for(i=0;i<n;i++)
-		printf(" %d\t", arr[i]);
+    SelectionSort(arr,n);
+    printf("Sorted Array :\n");
+    for(i=0;i<n;++i)
+    {
+        printf("%d  ",arr[i]);
+        
+    }
 }
-int smallest(int arr[], int k, int n)
-{
-	int pos = k, small=arr[k], i;
-	for(i=k+1;i<n;i++)
-	{
-		if(arr[i]< small)
-		{
-			small = arr[i];
-			pos = i;
-		}
-	}
-	return pos;
+void SelectionSort(int arr[],int n)
+{	
+    // i indicates index of first element of unsorted array
+    // min indicates index of minmimum element in unsorted array
+	int temp=0,min=0;
+    for (int i = 0; i < n-1; i++) 
+    {
+        min=i;
+        for (int j = i+1; j < n; j++)
+        {   
+            //finding index of smallest element in unsorted array
+            if (arr[j]<arr[min])
+            {   
+                min=j;
+                
+            }
+            //swapping first element of unsorted array with minimum element
+            temp=arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+            
+        }
+    }
+
 }
-void selection_sort(int arr[],int n)
-{
-	int k, pos, temp;
-	for(k=0;k<n;k++)
-	{
-		pos = smallest(arr, k, n);
-		temp = arr[k];
-		arr[k] = arr[pos];
-		arr[pos] = temp;
-	}
-}
+
