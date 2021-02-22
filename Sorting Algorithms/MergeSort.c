@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define size 100
-void merge(int a[], int, int, int);
-void merge_sort(int a[],int, int);
+void merge(int arr[], int beg, int mid, int end);
+void merge_sort(int arr[], int beg, int end);
 void main()
 {
     int arr[size], i, n;
@@ -16,6 +16,7 @@ void main()
     printf("\n The sorted array is: \n");
     for(i=0;i<n;i++)
         printf(" %d\t", arr[i]);
+
 }
 void merge(int arr[], int beg, int mid, int end)
 {
