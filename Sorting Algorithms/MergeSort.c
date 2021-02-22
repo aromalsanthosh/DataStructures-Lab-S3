@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #define size 100
 void merge(int a[], int, int, int);
 void merge_sort(int a[],int, int);
