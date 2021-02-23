@@ -1,85 +1,87 @@
-//Operations On Que
 #include <stdio.h>
-int Ar[25], n, front = -1, rear = -1, item;
-void insert(int n);
-void delete ();
-void view();
+#define MAXSIZE 100
 
-void main()
+int queue[MAXSIZE];
+int front=-1,rear=-1,item,n;
+
+void Enqueue(int x);
+void Dequeue();
+void Display();
+
+
+int main()
 {
-  int n, ch;
-  printf("Enter the size of Queue:");
-  scanf("%d", &n);
-  do
-  {
-    printf("\n----Operations Menu----\n\n1.Insert\n2.Delete\n3.Exit\n");
-    printf("Enter the choice#:");
-    scanf("%d", &ch);
-    switch (ch)
-    {
-    case 1:
-      insert(n);
-      break;
-    case 2:
-      delete ();
-      break;
-    default:
-      break;
-    }
-  } while (ch < 3);
+    int ch=0;
+    printf("Enter the size of Queue:");
+    scanf("%d", &n);
+    do {
+        printf("\n----Menu----\n");
+        printf("\n1.Enqueue\n2.Dequeue\n3.Display\n4.Exit");
+        printf("\nEnter a choice :");
+        scanf("%d",&ch);
+        switch (ch) {
+            case 1:
+                printf("\nEnter item to Enqueue :");
+                scanf("%d",&item);
+                Enqueue(item);
+                break;
+            case 2:
+                Dequeue();
+                break;
+            case 3:
+                Display();
+                break;
+            case 4:
+                break;
+            default:
+                printf("\n Enter correct choice !");
+        }
+
+    }while (ch!=4);
 }
 
-void insert(int n)
+void Enqueue(int x)
 {
-  if (rear >= n - 1)
-  {
-    printf("\n---Overflow!!!---\n\n");
-  }
-  else
-  {
-    if (front == -1 && rear == -1)
+    if (rear>=n-1)
     {
-      front++;
+        printf("\n Error Queue Is Full");
     }
-    printf("Enter the element to be inserted:");
-    scanf("%d", &item);
-    rear++;
-    Ar[rear] = item;
-  }
-  view(rear);
+    else if(front==-1 && rear==-1)//queue is empty
+    {
+        front=rear=0;//codition when queue has one element
+    }
+    else//queue has some element
+    {
+        rear++;
+    }
+    queue[rear]=x;
+
 }
 
-void delete ()
+void Dequeue()
 {
-  if (front == -1)
-  {
-    printf("\n---Error! Underflow!!!---\n\n");
-  }
-  else
-  {
-    item = Ar[front];
-    printf("The element deleted is %d\n", item);
-    if (front == rear)
+    int item;
+    if(front==-1 && rear==-1)//queue empty
     {
-      front = -1;
-      rear = -1;
-      printf("\n---Error! Queue is empty---\n\n");
+        printf("\n Error Queue Is Empty");
     }
-    else
+    else if(front==rear)//queue has only one element 
     {
-      front++;
-      view(rear);
-    }
-  }
-}
+        item = queue[front];
+        front=rear=-1;//setting queue to empty
+        printf("\nDeleted Element : %d",item);
 
-void view(int rear)
-{
-  int i;
-  printf("\nThe current Queue is\n");
-  for (i = front; i <= rear; i++)
-  {
-    printf("%d ", Ar[i]);
-  }
-  printf("\n");
+    }
+    else//queue has more than one element
+    {
+        item= queue[front];
+        front++;
+        printf("\nDeleted Element : %d",item);
+
+    }
+}
+void Display(){
+    printf("\nQueue is : \n");
+    for(int i=front;i<=rear;i++)
+        printf("%d ",queue[i]);
 }
