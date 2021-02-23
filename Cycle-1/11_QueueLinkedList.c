@@ -33,7 +33,7 @@ void dequeue(){
   }
   else{
     int val=front->data;
-    printf("THE VALUE AT FRONT IS:%d",val);
+    printf("\nDeleted Value is %d",val);
     temp=front;
     front=front->link;
     free(temp);
@@ -47,6 +47,7 @@ void display(){
   }
   else{
     temp=front;
+    printf("\nElements in Queue :\n");
     while(temp!=NULL){
       printf("%d\t",temp->data);
       temp=temp->link;
@@ -54,27 +55,32 @@ void display(){
   }
 }
 
-void main(){
-  int data,op;
-  while(1){
-    printf("\n1.ENQUEUE\n2.DEQUEUE\n3.DISPLAY\n4.Exit\nSelect the operation:");
-    scanf("%d",&op);
-    if(op==1){
-      printf("Enter the element to be enqueued:");
-      scanf("%d",&data);
-      enqueue(data);
-    }
-    else if(op==2){
-      dequeue();
-    }
-    else if(op==3){
+int main()
+{
+    int ch=0,item;
+    do {
+        printf("\n----Menu----\n");
+        printf("\n1.Enqueue\n2.Dequeue\n3.Display\n4.Exit");
+        printf("\nEnter a choice :");
+        scanf("%d",&ch);
+        switch (ch) {
+            case 1:
+                printf("\nEnter item to Enqueue :");
+                scanf("%d",&item);
+                enqueue(item);
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+                break;
+            default:
+                printf("\n Enter correct choice !");
+        }
 
-      display();
-    }
-    else if(op==4){
-      exit(0);
-    }
-    else printf("INVALID OPERATION!!");
-
-  }
+    }while (ch!=4);
 }
