@@ -1,72 +1,116 @@
-//Operations On Stack
-#include <stdio.h>
-int top = -1, Ar[20], i, item; 
-void push(int n);
-void view();
-void pop();
+#include<stdio.h>
+#define SIZE 25
 
-void main()
-{
-  int n, ch;
-  printf("Enter the size of Stack:");
-  scanf("%d", &n);
-  while (ch != 3)
-  {
-    printf("\n----Menu----\n\n1.Push\n2.Pop\n3.Exit ");
-    printf("\nEnter the choice:");
-    scanf("%d", &ch);
-    switch (ch)
+void push(int item );
+void pop();
+void display();
+int isEmpty();
+int isFull();
+
+int stack[SIZE], top=-1, i;
+int n;
+
+void main ()
+{   
+    int ch;
+    printf("Enter Size of Stack : ");
+    scanf("%d",&n);
+
+    do
     {
-    case 1:
-      push(n);
-      break;
-    case 2:
-      pop(n);
-      break;
-    default:
-      break;
+        printf("\n----Menu----\n\n1.Push\n2.Pop\n3.Display\n4.Exit ");
+        printf("\nEnter the choice:");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+        case 1:
+        	printf("\nEnter element to insert :");
+        	int data;
+        	scanf("%d",&data);
+            push(data);
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            display();
+            break;
+        default:
+            break;
     }
-  }
+    } while (ch!=4);
+    
+
 }
 
-void push(int n)
+int isEmpty(){
+    if (top==-1)
+    {
+        return 1;
+    }
+    else
+        return 0;
+}
+
+int isFull()
 {
-  if (top == n - 1)
-  {
-    printf("\nOverflow!!!\n");
-  }
-  else
-  { 
-    printf("\nEnter the item:");
-    scanf("%d", &item);
-    // Increment top and then insert
-    top++; 
-    Ar[top] = item;
-    printf("\nAfter Pushing\nThe Stack becomes\n\n");
-    view();
-  }
+    if (top==n-1   )
+    {
+        return 1;
+    }
+    else
+        return 0;
+}
+
+void push( int item)
+{
+    if (isFull())
+    {
+        printf("\nStack Overflow !!");
+    }
+    else
+    {   
+        
+        top++;
+        stack[top]=item;
+    }
+    
 }
 
 void pop()
 {
-  if (top <= -1)
-  {
-    printf("\nUnderflow!!!\n");
-  }
-  else
-  {
-    item = Ar[top];
-    printf("The element popped is %d", Ar[top]);
-    top--; 
-    printf("\nAfter popping\nThe stack becomes\n\n");
-    view();
-  }
+    int data;
+    if (isEmpty())
+    {
+        printf("\nStack Underflow !!");
+    }
+    else
+    {
+        data=stack[top];
+        top--;
+        printf("\nPopped Element : %d",data );
+    }
+
+    
+    
 }
 
-void view()
+
+void display()
 {
-  for (i = top; i >= 0; --i)
-  {
-    printf("%d\n", Ar[i]);
-  }
+    if (isEmpty())
+    {
+        printf("\nStack Empty !!");
+    }
+    
+    else 
+    {
+        printf("\nElements of stack are :\n");
+        for ( i = top ; i >=0; i--)           
+        {
+            
+            printf("%d\n",stack[i]);
+        }
+    }
+        
 }
