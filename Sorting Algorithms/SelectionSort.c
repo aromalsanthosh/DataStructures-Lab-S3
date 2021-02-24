@@ -35,12 +35,11 @@ void SelectionSort(int arr[],int n)
                 min=j;
                 
             }
-            //swapping first element of unsorted array with minimum element
-            temp=arr[i];
-            arr[i]=arr[min];
-            arr[min]=temp;
-            
         }
+	//swapping first element of unsorted array with minimum element
+        temp=arr[i];
+        arr[i]=arr[min];
+        arr[min]=temp;
     }
 
 }
