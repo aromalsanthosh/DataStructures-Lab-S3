@@ -10,10 +10,10 @@ node* top=NULL;
 
 void push(int data){
   node* newnode=(node*)malloc(sizeof(node));
-  if(newnode==NULL){
-    printf("Stack Overflow\n");
-    return;
-  }
+
+
+   
+
   if (top==NULL){
     newnode->data=data;
     newnode->link=NULL;
