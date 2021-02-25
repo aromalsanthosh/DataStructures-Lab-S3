@@ -10,10 +10,6 @@ node* top=NULL;
 
 void push(int data){
   node* newnode=(node*)malloc(sizeof(node));
-
-
-   
-
   if (top==NULL){
     newnode->data=data;
     newnode->link=NULL;
